@@ -16,7 +16,6 @@ contract DeployAndUpgradeTest is Test {
 
     DeployBox public deployBox;
     UpgradeBox public upgradeBox;
-    address public owner = makeAddr("owner");
 
     address public proxy;
 
@@ -38,7 +37,6 @@ contract DeployAndUpgradeTest is Test {
     }
 
     function testUpgrades() public {
-        vm.prank(owner);
         BoxV2 box2 = new BoxV2();
 
         proxy = upgradeBox.upgradeBox(proxy, address(box2));
